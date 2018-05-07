@@ -14,7 +14,7 @@ class User:
 
     @classmethod
     def display_user(self):
-        return cls.user_list
+        return User.user_list
 
 class Credentials:
     credentials_list = []
@@ -36,3 +36,9 @@ class Credentials:
     @classmethod
     def display_credentials(self):
         return cls.credentials_list
+
+    @classmethod
+    def find_credentials(cls,p_number):
+        for credentials in cls.credentials_list:
+            if credentials.p_number == p_number:
+                return credentials
