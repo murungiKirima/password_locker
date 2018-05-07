@@ -16,6 +16,14 @@ class User:
     def display_user(self):
         return User.user_list
 
+    @classmethod
+    def user_exist(cls,password):
+        for user in cls.user_list:
+            if user.password == password:
+                return True
+        
+        return False
+
 class Credentials:
     credentials_list = []
 

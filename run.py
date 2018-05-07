@@ -23,12 +23,20 @@ def main():
     print('\n')
 
     while True:
-        print("Use these short codes : \n cc - create a new user account,\n dc - display users,\n fc -Check if a user exists, \n lg -Login to account \n ex -exit account ")
+        print("Use these short codes :  \n lg -Login to account, \n cc - create a new user account,\n dc - display users,\n fc -Check if a user exists, \n ex -exit account ")
         short_code = input().lower()
 
-        if short_code == 'cc':
+        if short_code == 'lg':
+            print('\n')
+            print("Enter you login details ...")
+            login_name = input()
+            login_password = input()
+
+            if 
+
+        elif short_code == 'cc':
             print("-" * 10)
-            print("New contact")
+            print("New User")
 
             print("First Name ...")
             f_name = input()
@@ -57,6 +65,15 @@ def main():
                 print('\n')
                 print("You don't have any users saved yet.")
                 print('\n')
+        
+        elif short_code == "ex":
+            print('\n')
+            print("Goodbye ...")
+            break
+        
+        else:
+            print("I really didn't get that, please use the short-codes provided.")
+
 
 if __name__ == '__main__':
     main()

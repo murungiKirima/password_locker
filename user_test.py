@@ -39,9 +39,9 @@ class TestUser(unittest.TestCase):
         test_user = User("mm","yy","123")
         test_user.save_user()
 
-        found_user = User.user_exist("mm")
+        found_user = User.user_exist("123")
 
-        self.assertEqual(test_user_exists)
+        self.assertTrue(found_user)
 
 if __name__ == '__main__':
     unittest.main()
