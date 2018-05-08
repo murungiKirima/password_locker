@@ -39,7 +39,7 @@ class TestUser(unittest.TestCase):
         test_user = User("mm","yy","123")
         test_user.save_user()
 
-        found_user = User.user_exist("123")
+        found_user = User.user_exist("mm")
 
         self.assertTrue(found_user)
 

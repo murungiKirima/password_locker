@@ -17,36 +17,47 @@ class User:
         return User.user_list
 
     @classmethod
-    def user_exist(cls,password):
+    def find_user_by_name(cls,name):
         for user in cls.user_list:
-            if user.password == password:
+            if user.f_name == name:
+                return user
+
+    @classmethod
+    def user_exist(cls,f_name):
+        for user in cls.user_list:
+            if user.f_name == f_name:
                 return True
         
         return False
 
-class Credentials:
-    credentials_list = []
 
-    def __init__(self,f_name,l_name,email,p_number,proffession,hobby):
-        self.f_name = f_name
-        self.l_name = l_name
-        self.email = email
-        self.p_number = p_number
-        self.proffession = proffession
-        self.hobby = hobby
+
+class Credentials:
+    def __init__ (self,user_name, credential_name , credential__password):
+        self.user_name = user_name
+        self.credential_name =credential_name
+        self.credential_password =credential__password
+
+    list_of_credentials = [] 
 
     def save_credentials(self):
-        Credentials.credentials_list.append(self)
-
+        self.list_of_credentials.append(self)
+        
     def delete_credentials(self):
-        Credentials.credentials_list.remove(self)
+        Credentials.list_of_credentials.remove(self)
 
     @classmethod
-    def display_credentials(self):
-        return cls.credentials_list
+    def find_credentials_by_name(cls,name):
+        for credential in cls.list_of_credentials:
+            if credential.user_name == name:
+                return credential
 
     @classmethod
-    def find_credentials(cls,p_number):
-        for credentials in cls.credentials_list:
-            if credentials.p_number == p_number:
-                return credentials
+    def credential_exists(cls,name):
+        for credential in cls.list_of_credentials:
+            if credential.user_name == name:
+                return True
+
+    @classmethod
+    def display_all_credentials(cls):
+        return cls.list_of_credentials
