@@ -27,7 +27,7 @@ def create_credential(user_name,credential_name,credential_password):
     new_run_credential = Credentials(user_name,credential_name,credential_password)
     return new_run_credential
 
-def save_credential_run(credential):
+def save_credential(credential):
     credential.save_credentials()
 
 def delete_credential_run(credential):
@@ -80,46 +80,30 @@ def main():
                     credential_user_name = logged_in_user.f_name
 
                     if short_code1 == 'cc':
-                        
-                        while True:
-                            print('\n')
-                            print("Please use the following short-codes.")
-                            print ('-'*10)
-                            print("1 - Create your own password.")
-                            print("2 - Get system generated password.")
-                            print("ok - Go back to credentails")
-                            short_code2 = input()
+                        print('\n')
+                        print("What to save some credentials?")
 
-                            if short_code2 == '1':
-                                print(f"Hello {credential_user_name}, please add your credentials.") 
-                                print("Enter Credential name")
-                                name_of_credential =input()
-                                print("Enter credential password")
-                                password_of_credential = input()
+                        print("Enter your user Name")
+                        user_name = input()
 
-                                save_credential_run(create_credential(credential_user_name,name_of_credential,password_of_credential))
+                        print("Enter a credential Name")
+                        credential_name = input()
 
-                                print("Your credentials have been saved")
-                                print ('-'*10)
-                                credential = name_of_credential
-                                for credential in Credentials.display_all_credentials():
-                                    if credential_user_name == credential.user_name:
-                                        print(f"Your credentials: \n -Credential name: {credentials.credential_name}......\n -Credential password: {credentials.credential_password}")
-                                        print ("\n")
-                            
-                            elif short_code2 == 'ok':
-                                break
+                        print("Enter a credential password")
+                        credential_password = input()
 
-                            else:
-                                print("I didn't really get that, please use provided short codes")
-                                print ("\n")
+                        save_credential(create_credential(user_name,credential_name,credential_password))
+                        print('\n')
+                        print(f"Credential {credential_name} has been created.")
+                        print('\n')
+
                         
                     elif short_code1 == 'dc':
                         if display_all_credentials():
                             print("Here are the saved credentials for {credential_user_name}.")
 
                         for user in display_all_credentials():
-                            print(f"{user.f_name} {user.l_name}")
+                            print(f"{credential.user_name} {credential.credential_name}")
                             print('\n')
 
                         else:
@@ -135,6 +119,7 @@ def main():
                             for credential in Credentials.display_all_credentials():
                                 if credential.credential_name == credential_for_delete:
                                     credential.delete_credentials()
+                                    print ("\n")
                                     print(f"Deleted {credential_for_delete}")
                                     print("\n")
 
