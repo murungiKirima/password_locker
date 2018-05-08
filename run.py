@@ -38,7 +38,7 @@ def display_all_credentials():
 
 def credential_exists(credential):
     return Credentials.credential_exists(credential)
-
+    
 def main():
     print("Welcome, What's your name?")
     user_name = input()
