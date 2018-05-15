@@ -1,20 +1,46 @@
 # PASSWORD LOCKER
 This project was generated with Python3
 
-## Installation
-Clone this repository to your local computer.<br/>
-Ensure you have python3.6 installed in your computer. <br/>
-From the terminal navigate to the cloned project folder. <br/>
-Run `python3.6 run.py` code in the terminal to launch.
+## Prerequisites
+* You will need to have python3 or python3.6 installed on your machine.
+* To install python3.6, check if python is installed:
+```
+python3.6
+```
+* Then run the following commands one by one in your terminal:
+```
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6
+```
+* Confirm installation:
+```
+$ python3.6
+
+Python 3.6.0 (default, Nov 17 2016, 17:05:23)
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
 ## Usage
-Clone the repo to your local machine.<br/>
-Open your terminal and navigate to the project folder.<br/>
-Type in `python3 run.py` in your terminal to run the app.<br/>
-Follow the short codes to use the app.
+* Run the following codes in your terminal to use the app:
+```
+git clone <url>
+cd <cloned_folder>
+python3 run.py
+```
+or
+```
+python3.6 run.py
+```
+* Follow the short codes to use the app.
 
 ## Running unit tests
-Run `python3 credentials_test.py` for credential class tests.<br/>
-Run `python3 user_test.py` for user class tests.
+For running tests, use the following codes in your terminal:
+```
+python3 credentials_test.py
+python3 user_test.py
+```
 
 ## Bugs.
 There is no database to support the app since it is a terminal app. Once you exit or log out of a session you loose all the credentials and the created user account so you will have to create a new user for every session.
