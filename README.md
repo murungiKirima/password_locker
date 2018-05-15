@@ -35,7 +35,7 @@ python3.6 run.py
 ```
 * Follow the short codes to use the app.
 
-## Running unit tests
+### Running unit tests
 For running tests, use the following codes in your terminal:
 ```
 python3.6 credentials_test.py
