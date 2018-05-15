@@ -3,42 +3,53 @@
 from account import User, Credentials
 
 def create_user(f_name,l_name,password):
+    """function that creates new users"""
     new_user =  User(f_name,l_name,password)
     return new_user
 
 def save_users(user):
+    """function that saves users"""
     user.save_user()
 
 def del_user(user):
+    """function that deletes users"""
     user.delete_user()
 
 def display_user():
+    """function that displays users saved"""
     return User.display_user()
 
 def user_exists(name):
+    """function that checks whether a user exists"""
     return User.user_exist(name)
 
 def find_users(name):
+    """function that finds users by their first name"""
     return  User.find_user_by_name(name)
 
 
 
 def create_credential(user_name,credential_name,credential_password):
+    """function that creates new credentials in user account"""
     new_run_credential = Credentials(user_name,credential_name,credential_password)
     return new_run_credential
 
 def save_credential(credential):
+    """function that saves credentials in user account"""
     credential.save_credentials()
 
 def delete_credential_run(credential):
-    credential.delete_credentials() 
+    """function that deletes credentials in user account"""
+    credential.delete_credentials()
 
 def display_all_credentials():
+    """function that displays credentials in user account"""
     return Credentials.display_all_credentials()
 
 def credential_exists(credential):
+    """function that checks if credentials exist in credentials in user account"""
     return Credentials.credential_exists(credential)
-    
+
 def main():
     print("Welcome, What's your name?")
     user_name = input()
@@ -66,13 +77,14 @@ def main():
                     print('\n')
                     print(f" {logged_in_user.f_name}, you are now logged into your user account.")
                     print('\n')
-                
+
                 while True:
                     print ('\n')
                     print("Please use the following short-codes.")
                     print ('-'*10)
                     print("cc - Add a credential.")
-                    print("dc - Display credentials.") 
+                    print("dc - Display credentials.")
+                    print("ch - Check if user exists")
                     print("dl - Delete a credential.")
                     print("ex - Exit")
                     short_code1 = input()
@@ -97,7 +109,6 @@ def main():
                         print(f"Credential {credential_name} has been created.")
                         print('\n')
 
-                        
                     elif short_code1 == 'dc':
                         if display_all_credentials():
                             print("Here are the saved credentials for {credential_user_name}.")
@@ -126,12 +137,12 @@ def main():
                                 else:
                                     print ("\n")
                                     print("The entered credential doesn't exist.")
-                                    print ("\n")  
+                                    print ("\n")
                         else:
                             print ("\n")
                             print("There are NO saved credentials")
                             print ("\n")
-                                            
+
                     elif short_code1 == 'ex':
                         print('\n')
                         print("Goodbye ...")
@@ -174,7 +185,7 @@ def main():
                 print('\n')
                 print("You don't have any users saved yet. Use short code 'cc' to create user account.")
                 print('\n')
-        
+
         elif short_code == 'dl':
             print('\n')
             print(f"Enter User's first name to check if the user exists. ")
@@ -189,13 +200,13 @@ def main():
             else:
                 print ("\n")
                 print("The entered user account doesn't exist.")
-                print ("\n")  
-        
+                print ("\n")
+
         elif short_code == "ex":
             print('\n')
             print("Goodbye ...")
             break
-        
+
         else:
             print("I really didn't get that, please use the short-codes provided.")
 
