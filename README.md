@@ -27,7 +27,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 git clone <url>
 cd <cloned_folder>
-python3 run.py
+python3.6 run.py
 ```
 or
 ```
@@ -38,8 +38,8 @@ python3.6 run.py
 ## Running unit tests
 For running tests, use the following codes in your terminal:
 ```
-python3 credentials_test.py
-python3 user_test.py
+python3.6 credentials_test.py
+python3.6 user_test.py
 ```
 
 ## Bugs.
