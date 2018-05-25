@@ -1,17 +1,14 @@
 # PASSWORD LOCKER
-This project was generated with Python3
+### By Murungi Kirima
+This project was generated with Python3.6
 
 ## Prerequisites
 * You will need to have python3 or python3.6 installed on your machine.
-* To install python3.6, check if python is installed:
+* On the terminal copy the following individual commands on your console.
 ```
-python3.6
-```
-* Then run the following commands one by one in your terminal:
-```
-sudo add-apt-repository ppa:jonathonf/python-3.6
-sudo apt-get update
-sudo apt-get install python3.6
+$ sudo add-apt-repository ppa:jonathonf/python-3.6
+$ sudo apt-get update
+$ sudo apt-get install python3.6
 ```
 * Confirm installation:
 ```
@@ -21,25 +18,24 @@ Python 3.6.0 (default, Nov 17 2016, 17:05:23)
 [GCC 5.4.0 20160609] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
+
+>>>exit()
 ```
+
 ## Usage
-* Run the following codes in your terminal to use the app:
+* On the terminal copy the following individual commands on your console:
 ```
-git clone <url>
-cd <cloned_folder>
-python3.6 run.py
-```
-or
-```
-python3.6 run.py
+$ git clone https://github.com/murungiKirima/password_locker.git
+$ cd <cloned_folder>
+$ python3.6 run.py
 ```
 * Follow the short codes to use the app.
 
 ### Running unit tests
 For running tests, use the following codes in your terminal:
 ```
-python3.6 credentials_test.py
-python3.6 user_test.py
+$ python3.6 credentials_test.py
+$ python3.6 user_test.py
 ```
 
 ## Bugs.

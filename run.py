@@ -46,6 +46,10 @@ def display_all_credentials():
     """function that displays credentials in user account"""
     return Credentials.display_all_credentials()
 
+def find_credentials_by_name(name):
+    """function that finds users by their first name"""
+    return  Credentials.find_by_name(name)
+
 def credential_exists(credential):
     """function that checks if credentials exist in credentials in user account"""
     return Credentials.credential_exists(credential)
@@ -55,11 +59,11 @@ def main():
     user_name = input()
 
     print('\n')
-    print(f"Hello {user_name}, what would you like to do?")
+    print("Hello {}, what would you like to do?".format(user_name))
     print('\n')
 
     while True:
-        print("Use these short codes :  \n lg -Login to account, \n cc - create a new user account,\n dc - display users,\n dl -Delete user account, \n ex -exit account ")
+        print("Use these short codes :  \n lg -Login to account, \n cc - create a new user account,\n dc - display users,\n fc - search for account using First name,\n dl -Delete user account, \n ex -exit account ")
         short_code = input().lower()
 
         if short_code == 'lg':
@@ -84,7 +88,7 @@ def main():
                     print ('-'*10)
                     print("cc - Add a credential.")
                     print("dc - Display credentials.")
-                    print("ch - Check if user exists")
+                    print("fc - Search for credential.")
                     print("dl - Delete a credential.")
                     print("ex - Exit")
                     short_code1 = input()
@@ -101,7 +105,7 @@ def main():
                         print("Enter a credential Name")
                         credential_name = input()
 
-                        print("Enter a credential password")
+                        print("Enter a credential description")
                         credential_password = input()
 
                         save_credential(create_credential(user_name,credential_name,credential_password))
@@ -111,20 +115,33 @@ def main():
 
                     elif short_code1 == 'dc':
                         if display_all_credentials():
-                            print("Here are the saved credentials for {credential_user_name}.")
 
-                        for user in display_all_credentials():
-                            print(f"{credential.user_name} {credential.credential_name}")
-                            print('\n')
-
+                            for credential in display_all_credentials():
+                                print(f"Here are the saved credentials for {credential.user_name}.")
+                                print(f" {credential.credential_name}")
+                                print(f" {credential.credential_password}")
+                                print('\n')
                         else:
                             print ("\n")
                             print("There are NO saved credentials")
                             print ("\n")
+                    
+                    elif short_code1 == 'fc':
+                        print("Enter an account name to find credentials")
+                        search_name = input()
+
+                        if credential_exists(search_name):
+                            search_credential = find_credentials_by_name(search_name)
+                            print(f"Account for, {search_credential.user_name} \n Credential name: {search_credential.credential_name} \n Credential description: {search_credential.credential_password}")
+                            print ("\n")
+                        else:
+                            print ("\n")
+                            print("That account does NOT exist")
+                            print ("\n")
 
                     elif short_code1 == 'dl':
                         if Credentials.credential_exists(credential_user_name):
-                            print("Enter the credential to delete.")
+                            print("Enter the credential name to delete credential.")
                             credential_for_delete = input()
 
                             for credential in Credentials.display_all_credentials():
@@ -172,12 +189,13 @@ def main():
             print(f"User {f_name} {l_name} has been created. You can now log in and save your credentials.")
             print('\n')
 
-        elif short_code == 'dc':
+        elif short_code == 'dl':
             if display_user():
                 print("Here are the saved users.")
                 print('\n')
 
                 for user in display_user():
+                    print('\n')
                     print(f"{user.f_name} {user.l_name}")
                     print('\n')
 
@@ -186,9 +204,22 @@ def main():
                 print("You don't have any users saved yet. Use short code 'cc' to create user account.")
                 print('\n')
 
-        elif short_code == 'dl':
+        elif short_code == 'fc':
+            print("Enter First name to find user account")
+            search_name = input()
+
+            if user_exists(search_name):
+                search_user = find_users(search_name)
+                print(f"Account found; {search_user.f_name} {search_user.l_name}")
+                print ("\n")
+            else:
+                print ("\n")
+                print("That account does NOT exist")
+                print ("\n")
+
+        elif short_code == 'dc':
             print('\n')
-            print(f"Enter User's first name to check if the user exists. ")
+            print(f"Enter User's first name to delete account ")
             delete_name = input()
 
             if user_exists(delete_name):
